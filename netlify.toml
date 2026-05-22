@@ -1,0 +1,24 @@
+[build]
+  publish = "."
+  command = "npm install"
+
+[functions]
+  directory = "functions"
+
+[build.processing]
+  skip_processing = true
+
+[[redirects]]
+  from   = "/api/holded/*"
+  to     = "/.netlify/functions/holded/:splat"
+  status = 200
+
+[[redirects]]
+  from   = "/api/storage"
+  to     = "/.netlify/functions/storage"
+  status = 200
+
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
